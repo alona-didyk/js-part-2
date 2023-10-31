@@ -38,19 +38,59 @@
 // function declaration is to simply use function keyword to declare a function
 // you can call it before you define it
 
-function calcAge1(birthYear) {
-  const age = 2037 - birthYear;
-  return age; // to take this value out of the function we return it
+// function calcAge1(birthYear) {
+//   const age = 2037 - birthYear;
+//   return age; // to take this value out of the function we return it
+// }
+
+// const age1 = calcAge1(1991);
+// console.log(age1);
+
+// // function expression
+
+// const calcAge2 = function (birthYear) {
+//   const age = 2037 - birthYear;
+//   return age; // to take this value out of the function we return it
+// };
+// const age2 = calcAge2(1991);
+// console.log(age2);
+
+// ARROW FUNCTIONS a shorter and more faster to write function
+// DO NOT HAVE KEY 'THIS' WORD
+
+// const calcAge2 = function (birthYear) {
+//   const age = 2037 - birthYear;
+//   return age; // to take this value out of the function we return it
+// };
+
+// const calcAge3 = (birthYear) => 2037 - birthYear;
+// const age3 = calcAge3(1991);
+// console.log(age3);
+
+// const yearsUntillRetirement = (birthYear, firstName) => {
+//   const age = 2037 - birthYear;
+//   const retirement = 65 - age;
+//   // return retirement;
+//   return `${firstName} retires in ${retirement} years`;
+// };
+
+// console.log(yearsUntillRetirement(1991, "Jonas"));
+// console.log(yearsUntillRetirement(1980, "Bob"));
+
+// FUNCTIONS CALLING OTHER FUNCTIONS
+
+function cutFruitPieces(fruit) {
+  return fruit * 4;
 }
 
-const age1 = calcAge1(1991);
-console.log(age1);
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
+  //   console.log(apples, oranges);
+  const juice = `Juice with ${applePieces} piece of apples ${orangePieces} pieces of oranges`;
+  return juice; // it returns any value that this function produce; the result of this function
+}
 
-// function expression
+console.log(fruitProcessor(2, 4));
 
-const calcAge2 = function (birthYear) {
-  const age = 2037 - birthYear;
-  return age; // to take this value out of the function we return it
-};
-const age2 = calcAge2(1991);
-console.log(age2);
+// we can simply * 4 and call it a day but DRY principle so we do not change everything in every places
